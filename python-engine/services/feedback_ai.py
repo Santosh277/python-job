@@ -1,6 +1,6 @@
 from google import genai
 
-client = genai.Client(api_key="AIzaSyCf-7v_0mTRrXK6bwRMAQdj9e4WoUiEKqg")
+client = genai.Client(api_key="x")
 
 def generate_feedback(score, skill_gap):
 
