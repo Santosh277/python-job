@@ -1,10 +1,6 @@
-import google.generativeai as genai
+from google import genai
 
-genai.configure(
-    api_key="AIzaSyCf-7v_0mTRrXK6bwRMAQdj9e4WoUiEKqg"
-)
-model = genai.GenerativeModel("gemini-2.0-flash")
-
+client = genai.Client(api_key="AIzaSyCf-7v_0mTRrXK6bwRMAQdj9e4WoUiEKqg")
 
 def generate_feedback(score, skill_gap):
 
@@ -21,5 +17,8 @@ def generate_feedback(score, skill_gap):
     Generate professional ATS feedback in exactly 2 lines.
     '''
 
-    response = model.generate_content(prompt)
+    # response = model.generate_content(prompt)
+    response = client.interactions.create(
+    model="gemini-3-flash-preview", 
+    input=prompt)
     return response.text.strip()
