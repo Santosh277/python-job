@@ -8,5 +8,5 @@ python-docx
 spacy
 numpy
 httpx
-google-generativeai
+google-genai
 python-multipart
