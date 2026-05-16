@@ -1,7 +1,5 @@
 from google import genai
-
-client = genai.Client(api_key="x")
-
+client = genai.Client(api_key="AIzaSyA7eYgVqNk_2KTSBA68_VuzcjyXBB7KXak")
 def generate_feedback(score, skill_gap):
 
     prompt = f'''
@@ -16,9 +14,7 @@ def generate_feedback(score, skill_gap):
 
     Generate professional ATS feedback in exactly 2 lines.
     '''
-
-    # response = model.generate_content(prompt)
-    response = client.interactions.create(
-    model="gemini-3-flash-preview", 
-    input=prompt)
+    response = client.models.generate_content(
+    model="gemini-2.5-flash", 
+    contents=prompt)
     return response.text.strip()

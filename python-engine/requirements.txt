@@ -9,4 +9,3 @@ spacy
 numpy
 httpx
 google-genai
-python-multipart
