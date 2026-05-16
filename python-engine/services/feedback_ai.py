@@ -1,7 +1,9 @@
-from openai import OpenAI
+import google.generativeai as genai
 
-client = OpenAI(api_key="YOUR_API_KEY")
-
+genai.configure(
+    api_key="AIzaSyCf-7v_0mTRrXK6bwRMAQdj9e4WoUiEKqg"
+)
+model = genai.GenerativeModel("gemini-2.0-flash")
 
 
 def generate_feedback(score, skill_gap):
@@ -19,14 +21,5 @@ def generate_feedback(score, skill_gap):
     Generate professional ATS feedback in exactly 2 lines.
     '''
 
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-            {
-                "role": "user",
-                "content": prompt
-            }
-        ]
-    )
-
-    return response.choices[0].message.content.strip()
+    response = model.generate_content(prompt)
+    return response.text.strip()

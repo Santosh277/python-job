@@ -60,4 +60,31 @@ def calculate_semantic_score(parsed_job, resume_data):
 
 
 def calculate_score(parsed_job, resume_data, skill_gap):
+    skill_score = calculate_skill_score(
+        parsed_job,
+        skill_gap
+    )
+
+    experience_score = calculate_experience_score(
+        parsed_job,
+        resume_data
+    )
+
+    education_score = calculate_education_score(
+        parsed_job,
+        resume_data
+    )
+
+    semantic_score = calculate_semantic_score(
+        parsed_job,
+        resume_data
+    )
+
+    final_score = (
+        (skill_score * 0.4) +
+        (experience_score * 0.2) +
+        (education_score * 0.1) +
+        (semantic_score * 0.3)
+    )
+
     return round(final_score)

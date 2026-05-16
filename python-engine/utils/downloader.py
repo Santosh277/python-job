@@ -5,14 +5,18 @@ import httpx
 
 
 def download_resume(url):
-
-    extension = url.split(".")[-1].split("?")[0]
-
-    file_name = f"temp/{uuid.uuid4()}.{extension}"
-
+    os.makedirs("temp",exist_ok=True)
     response = httpx.get(url)
+    content_type = response.headers.get("content-type","")
+    extension = "pdf"
+    if "word" in content_type:
+        extension = "docx"
+    elif "pdf" in content_type:
+        extension = "pdf"
+    
+    file_name = f"temp/{uuid.uuid4()}.{extension}"
 
     with open(file_name, "wb") as file:
         file.write(response.content)
-
+    
     return file_name
