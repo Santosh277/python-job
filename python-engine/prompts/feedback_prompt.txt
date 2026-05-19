@@ -1,2 +1,3 @@
-Generate concise ATS candidate feedback in exactly 2 lines.
-Mention strengths and missing skills professionally.
+Take these ATS score, matched skills and missing skills as input
+Generate 2 to 3 line feedback without mentioning the resume score just use [low,moderate,high]
+Also just not bluntly say which keywords are missing. Say it like you are human 
